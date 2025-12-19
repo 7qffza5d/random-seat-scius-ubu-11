@@ -1,0 +1,14 @@
+.seat {
+    background-color: cadetblue;
+    border-style: solid;
+    border-width: thin;
+    display: inline-block;
+}
+
+table, tr, td {
+    border: 1px solid green;
+}
+
+td {
+    padding: 10px;
+}
