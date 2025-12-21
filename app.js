@@ -1,15 +1,4 @@
-import { readFile } from 'fs/promises';
-
-var a = {};
-
-try {
-  const data = await readFile('./data.json', 'utf-8');
-  const jsonData = JSON.parse(data);
-  console.log(jsonData);
-  a = jsonData;
-} catch (error) {
-  console.error('Error reading file:', error);
-}
+import a from './data.json' with { type: 'json' };
 
 function shuffleObjectInPlace(obj) {
   const entries = Object.entries(obj);
@@ -28,4 +17,4 @@ function random(){
   console.log('shuffled (in-place):', a);
 }
 
-random();
+document.getElementById('randomize').addEventListener('click', random);
