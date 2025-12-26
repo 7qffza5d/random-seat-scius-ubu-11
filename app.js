@@ -1,5 +1,10 @@
 import a from './data.json' with { type: 'json' };
 
+const code = ["KA","KM","KQ","PN","TM","MU","ST","FO","CQ","PT",
+  "OC","IQ","IT","PU","MX","TP","TO","OK","RJ","TT",
+  "BF","CT","ND","AB","PM","AU","YY","BN","JA","DN"
+];
+
 function shuffleObjectInPlace(obj) {
   const entries = Object.entries(obj);
   for (let i = entries.length - 1; i > 0; i--) {
@@ -12,9 +17,18 @@ function shuffleObjectInPlace(obj) {
 }
 
 function random(){
-  console.log('original:', a);
   shuffleObjectInPlace(a);
-  console.log('shuffled (in-place):', a);
+  for(let i = 1; i <= 30; i++){
+    const element = document.getElementById(i.toString());
+    const currPerson = Object.values(a)[i-1];
+    const name = currPerson.name;
+    const number = currPerson.number;
+    element.innerHTML = `
+    <p class="name">${name}</p>
+    <p class="number">${number}</p>
+  `;
+  }
 }
 
 document.getElementById('randomize').addEventListener('click', random);
+
